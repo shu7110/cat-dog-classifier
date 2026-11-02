@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "labels": [
+    "cat",
+    "dog"
+  ],
+  "image_size": 224,
+  "mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "input_name": "pixel_values",
+  "output_name": "logits",
+  "layout": "NCHW",
+  "resize": "stretch",
+  "model_file": "cats_dogs_int8.onnx",
+  "quantization": "static-int8-qdq",
+  "evaluation": {
+    "samples": 100,
+    "accuracy": {
+      "PyTorch": 1.0,
+      "ONNX FP32": 1.0,
+      "ONNX INT8": 0.98
+    },
+    "int8_accuracy_drop": 0.020000000000000018
+  }
+}
